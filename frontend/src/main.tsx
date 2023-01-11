@@ -4,8 +4,9 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import TodoBoard from './pages/TodoBoard/index';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: '/login', element: <Login /> },
       { path: '/signup', element: <Signup /> },
+      { path: '/', element: <TodoBoard /> },
     ],
   },
 ]);
