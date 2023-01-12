@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TodoBoard from './pages/TodoBoard/index';
+import AuthChecker from './components/HOC/AuthCheck';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,16 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: '/login', element: <Login /> },
       { path: '/signup', element: <Signup /> },
-      { path: '/', element: <TodoBoard /> },
+      {
+        path: '/',
+        element: <AuthChecker />,
+        children: [
+          {
+            index: true,
+            element: <TodoBoard />,
+          },
+        ],
+      },
     ],
   },
 ]);

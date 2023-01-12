@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { redirect } from 'react-router-dom';
 import { TOKEN } from '../../../constants';
 import { TUserSign } from '../../../types/user';
 export const API_HOST = import.meta.url;
@@ -17,7 +18,13 @@ api.interceptors.request.use((config) => {
 
 export const authAPIs = {
   signUp: (userSign: TUserSign) =>
-    api
-      .post('users/create', userSign)
-      .then((res) => localStorage.setItem(TOKEN, res.data.token)),
+    api.post('users/create', userSign).then((res) => {
+      localStorage.setItem(TOKEN, res.data.token);
+      redirect('/login');
+    }),
+  login: (userSign: TUserSign) =>
+    api.post('users/login', userSign).then((res) => {
+      localStorage.setItem(TOKEN, res.data.token);
+      window.location.replace('/');
+    }),
 };
