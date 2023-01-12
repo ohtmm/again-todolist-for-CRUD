@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TodoBoard from './pages/TodoBoard/index';
-import AuthChecker from './components/HOC/AuthCheck';
+import AuthChecker from './components/authChecker/AuthCheck';
 
 const router = createBrowserRouter([
   {
