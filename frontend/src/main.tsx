@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import TodoBoard from './pages/TodoBoard/index';
+import TodoBoard from './pages/TodoBoard';
 import AuthChecker from './components/authChecker/AuthCheck';
 
 const router = createBrowserRouter([

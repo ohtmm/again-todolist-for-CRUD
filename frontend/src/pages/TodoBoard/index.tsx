@@ -1,5 +1,10 @@
 import React from 'react';
+import TodoInput from './TodoInput';
 
 export default function TodoBoard() {
-  return <div>todoboard</div>;
+  return (
+    <section>
+      <TodoInput />
+    </section>
+  );
 }

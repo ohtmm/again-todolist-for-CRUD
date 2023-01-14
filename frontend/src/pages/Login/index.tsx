@@ -16,7 +16,7 @@ export default function Login() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updated = { ...userSign, [event.target.name]: event.target.value };
     setUserSign(updated);
-    if (isValid(updated).validation) {
+    if (isValid(updated).valid) {
       setIsDisabled(false);
     }
   };

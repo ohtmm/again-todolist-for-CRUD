@@ -5,5 +5,5 @@ export type TUserSign = {
 
 export type TIsValid = {
   reason?: 'email' | 'password';
-  validation: boolean;
+  valid: boolean;
 };

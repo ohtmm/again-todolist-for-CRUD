@@ -7,12 +7,12 @@ export const isValid = (userSign: TUserSign): TIsValid => {
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
   if (email === '' || email === undefined || !emailRegex.test(email)) {
-    return { reason: 'email', validation: false };
+    return { reason: 'email', valid: false };
   }
 
   if (password.length < 8 || password === '' || password === undefined) {
-    return { reason: 'password', validation: false };
+    return { reason: 'password', valid: false };
   }
 
-  return { validation: true };
+  return { valid: true };
 };

@@ -3,11 +3,11 @@ import { TUserSign } from '../../../types/user';
 import { isValid } from '../../uitls/isValid';
 import { authAPIs } from '../api';
 
-type TAuthName = 'signUp' | 'login';
+type TAuthAction = 'signUp' | 'login';
 
 export const validateAndAuth = async (
   userSign: TUserSign,
-  authFunction: TAuthName
+  authFunction: TAuthAction
 ) => {
   if (isValid(userSign).validation) {
     authAPIs[`${authFunction}`](userSign);
