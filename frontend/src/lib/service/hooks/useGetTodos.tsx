@@ -4,20 +4,17 @@ import { useQuery } from 'react-query';
 import { TTodo } from '../../../types/todo';
 import { todoAPI } from '../api/todoAPI';
 
-// export interface ITodoList {
-//     results: TTodo[];
-// }
-
-type TGetTodo = {
+type TGetTodos = {
   isLoading: boolean;
   isError: boolean;
   data?: { data: TTodo[] };
 };
 
-export default function useGetTodo(): TGetTodo {
+export default function useGetTodos(): TGetTodos {
   const { data, isLoading, isError } = useQuery('todos', todoAPI.getTodos, {
     onSuccess: (data) => console.log(data),
     onError: (e: AxiosError) => console.log(e.message),
+    suspense: true,
   });
   return { isLoading, isError, data };
 }

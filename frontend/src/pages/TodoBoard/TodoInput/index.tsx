@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { TTodo } from '../../../types/todo';
 import { v4 as uuid } from 'uuid';
-import { todoAPI } from '../../../lib/service/api/todoAPI';
+import useCreateTodo from '../../../lib/service/hooks/useCreateTodo';
 
 export default function TodoInput() {
-  const [todo, setTodo] = useState<TTodo>({
-    id: '',
-    title: '',
-    content: '',
-  });
+  const [todo, setTodo] = useState<TTodo>(initialTodo);
+  const createMutation = useCreateTodo();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updated = { ...todo, [event.target.name]: event.target.value };
@@ -16,10 +13,9 @@ export default function TodoInput() {
   };
   const handleAdd = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const uid = uuid();
-    const newTodo = { ...todo, id: uid };
+    const newTodo = { ...todo, id: uuid() };
     setTodo(newTodo);
-    todoAPI.createTodo(newTodo);
+    createMutation.mutate(todo);
   };
   return (
     <form onSubmit={handleAdd}>
@@ -39,3 +35,11 @@ export default function TodoInput() {
     </form>
   );
 }
+
+const initialTodo = {
+  id: '',
+  title: '',
+  content: '',
+  createdAt: '',
+  updatedAt: '',
+};
