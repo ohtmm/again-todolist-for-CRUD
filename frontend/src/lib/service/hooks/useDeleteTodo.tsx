@@ -4,7 +4,9 @@ import { todoAPI } from '../api/todoAPI';
 export default function useDeleteTodo() {
   const queryclient = useQueryClient();
   const deleteMutation = useMutation(todoAPI.deleteTodo, {
-    onMutate: () => queryclient.invalidateQueries('todos'),
+    onSuccess: () => {
+      queryclient.invalidateQueries('todos');
+    },
     onError: console.log,
   });
   return deleteMutation;

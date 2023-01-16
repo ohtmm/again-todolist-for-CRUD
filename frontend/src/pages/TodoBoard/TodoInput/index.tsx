@@ -16,7 +16,7 @@ export default function TodoInput() {
     event.preventDefault();
     const newTodo = { ...todo, id: uuid() };
     setTodo(newTodo);
-    createMutation.mutate(todo);
+    createMutation.mutate(newTodo);
     setTodo(initialTodo);
     inputRef.current?.focus();
   };

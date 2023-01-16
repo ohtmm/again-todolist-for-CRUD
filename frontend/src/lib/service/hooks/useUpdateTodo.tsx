@@ -5,7 +5,7 @@ import { todoAPI } from '../api/todoAPI';
 export default function useUpdateTodo() {
   const queryclient = useQueryClient();
   const updateMutation = useMutation(todoAPI.updateTodo, {
-    onMutate: () => queryclient.invalidateQueries(['todos']),
+    onSuccess: () => queryclient.invalidateQueries('todos'),
     onSettled: console.log,
   });
   return updateMutation;
