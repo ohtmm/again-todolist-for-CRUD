@@ -3,7 +3,6 @@ import { api } from './api';
 
 export interface ItodoAPI {
   createTodo: (todo: TTodo) => Promise<{ data: TTodo }>;
-  // TODO: 리턴값 타입 찾기
   getTodos: () => Promise<{ data: TTodo[] }>;
   getTodoById: (id: string) => Promise<{ data: TTodo }>;
   updateTodo: (newTodo: TTodo) => Promise<{ data: TTodo }>;

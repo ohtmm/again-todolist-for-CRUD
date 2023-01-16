@@ -20,10 +20,10 @@ export default function TodoEdit({ todo, setIsEdit }: TodoEditProps) {
     setEditedTodo(updated);
   };
 
-  const handleUpdate = (event: React.FormEvent) => {
+  const handleUpdate = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsEdit(false);
-    console.log(editedTodo);
+    console.log('보내진거', editedTodo);
     updateMutation.mutate(editedTodo);
   };
   return (

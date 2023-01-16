@@ -51,3 +51,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </QueryClientProvider>
   </React.StrictMode>
 );
+
+/* TODO: add, mutate 이후 자동 업데이트가 안된다!
+ (recoil 써야하나? 다시 get 함수를 한다던데,, 나는 그 함수 데이터를 안 사용해서 그런가?
+  지금은 getTodos해서 props로 전달하는데,,, getTodoById로 get 함수를 전달해야 하나?)
+
+  수정 완료?를 하고 다시 새로고침을 하면 투두 데이터가 사라져있음... */
