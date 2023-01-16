@@ -8,23 +8,22 @@ interface TodoEditProps {
 }
 
 export default function TodoEdit({ todo, setIsEdit }: TodoEditProps) {
-  const [editedTodo, setEditedTodo] = useState<TTodo>(todo);
+  const { id, title, content } = todo;
+  const [editedTodo, setEditedTodo] = useState<TTodo>({ id, title, content });
   const updateMutation = useUpdateTodo();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updated = {
       ...editedTodo,
       [event.target.name]: event.target.value,
-      updatedAt: `${new Date()}`,
     };
     setEditedTodo(updated);
   };
 
   const handleUpdate = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsEdit(false);
-    console.log('보내진거', editedTodo);
     updateMutation.mutate(editedTodo);
+    setIsEdit(false);
   };
   return (
     <form onSubmit={handleUpdate}>

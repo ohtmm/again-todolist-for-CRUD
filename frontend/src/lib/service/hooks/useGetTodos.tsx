@@ -15,17 +15,6 @@ type TGetTodoById = {
 };
 
 export default function useGetTodos(): TGetTodos {
-  const { data, isLoading, isError } = useQuery('todos', todoAPI.getTodos, {
-    onSuccess: (data) => console.log(data),
-    onError: (e: AxiosError) => console.log(e.message),
-    suspense: true,
-  });
+  const { data, isLoading, isError } = useQuery('todos', todoAPI.getTodos);
   return { isLoading, isError, data };
 }
-
-// export function useGetTodoById(id: string): TGetTodoById {
-//   const { data } = useQuery(['todos', id], ()=>{todoAPI.getTodoById(id)}, {
-//     onSuccess: (data) => console.log('success getTodoById', data),
-//   })
-//   return { data}
-// }

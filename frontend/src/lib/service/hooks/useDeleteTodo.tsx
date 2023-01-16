@@ -7,7 +7,6 @@ export default function useDeleteTodo() {
     onSuccess: () => {
       queryclient.invalidateQueries('todos');
     },
-    onError: console.log,
   });
   return deleteMutation;
 }

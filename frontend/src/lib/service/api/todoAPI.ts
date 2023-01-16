@@ -5,7 +5,7 @@ export interface ItodoAPI {
   createTodo: (todo: TTodo) => Promise<{ data: TTodo }>;
   getTodos: () => Promise<{ data: TTodo[] }>;
   getTodoById: (id: string) => Promise<{ data: TTodo }>;
-  updateTodo: (id: string) => Promise<{ data: TTodo }>;
+  updateTodo: (newTodo: TTodo) => Promise<{ data: TTodo }>;
   deleteTodo: (id: string) => Promise<{ data: null }>;
 }
 
@@ -31,8 +31,8 @@ export class todoAPIImpl implements ItodoAPI {
     return api.get(`todos/${id}`).then((res) => res.data);
   }
 
-  updateTodo(id: string): Promise<{ data: TTodo }> {
-    return api.put(`todos/${id}`).then((res) => res.data);
+  updateTodo(newTodo: TTodo): Promise<{ data: TTodo }> {
+    return api.put(`todos/${newTodo.id}`, newTodo).then((res) => res.data);
   }
 
   deleteTodo(id: string): Promise<{ data: null }> {
