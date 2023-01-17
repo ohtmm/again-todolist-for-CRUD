@@ -1,8 +1,7 @@
-import { AxiosError } from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { TTodo } from '../../../types/todo';
-import { todoAPI } from '../api/todoAPI';
+import { TTodo } from '../../../../types/todo';
+import { todoAPI } from '../api';
 
 type TGetTodos = {
   isLoading: boolean;

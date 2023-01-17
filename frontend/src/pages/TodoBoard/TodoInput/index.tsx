@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { TTodo } from '../../../types/todo';
 import { v4 as uuid } from 'uuid';
-import useCreateTodo from '../../../lib/service/hooks/useCreateTodo';
+import useCreateTodo from '../../../lib/service/todo/hooks/useCreateTodo';
 
 export default function TodoInput() {
   const [todo, setTodo] = useState<TTodo>(initialTodo);

@@ -1,5 +1,5 @@
-import { TTodo } from '../../../types/todo';
-import { api } from './api';
+import { TTodo } from '../../../../types/todo';
+import { api } from '../../api/common';
 
 export interface ItodoAPI {
   createTodo: (todo: TTodo) => Promise<{ data: TTodo }>;

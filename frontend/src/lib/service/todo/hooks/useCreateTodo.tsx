@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { todoAPI } from '../api/todoAPI';
+import { todoAPI } from '../api/index';
 
 export default function useCreateTodo() {
   const queryclient = useQueryClient();

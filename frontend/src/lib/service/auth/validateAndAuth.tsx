@@ -1,6 +1,7 @@
 import { TUserSign } from '../../../types/user';
 import { isValid } from '../../uitls/isValid';
-import { authAPI } from '../api/authAPI';
+import { toast } from 'react-toastify';
+import { authAPI } from './api/index';
 
 type TAuthAction = 'signUp' | 'login';
 
@@ -11,7 +12,6 @@ export const validateAndAuth = async (
   if (isValid(userSign).valid) {
     authAPI[`${authFunction}`](userSign);
   } else {
-    // TODO: toast로 수정해야 함
-    alert(`${isValid(userSign).reason}을 다시 입력해주세요`);
+    toast.error(`${isValid(userSign).reason}을 다시 입력해주세요`);
   }
 };

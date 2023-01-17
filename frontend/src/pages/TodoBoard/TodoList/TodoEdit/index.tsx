@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import useUpdateTodo from '../../../lib/service/hooks/useUpdateTodo';
-import { TTodo } from '../../../types/todo';
+import { TTodo } from '../../../../types/todo';
+import useUpdateTodo from '../../../../lib/service/todo/hooks/useUpdateTodo';
 
 interface TodoEditProps {
   todo: TTodo;

@@ -1,7 +1,7 @@
 import { redirect } from 'react-router-dom';
-import { TOKEN } from '../../../constants';
-import { TUserSign } from '../../../types/user';
-import { api } from './api';
+import { TOKEN } from '../../../../constants';
+import { TUserSign } from '../../../../types/user';
+import { api } from '../../api/common';
 
 export const authAPI = {
   signUp: (userSign: TUserSign) =>

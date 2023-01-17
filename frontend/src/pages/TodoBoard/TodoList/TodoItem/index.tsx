@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import useDeleteTodo from '../../../lib/service/hooks/useDeleteTodo';
-import { TTodo } from '../../../types/todo';
-import TodoEdit from './TodoEdit';
+import { TTodo } from '../../../../types/todo';
+import TodoEdit from '../TodoEdit/index';
+import useDeleteTodo from '../../../../lib/service/todo/hooks/useDeleteTodo';
 
 interface TodoItemProps {
   todo: TTodo;
@@ -14,7 +14,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
     setIsEdit(true);
   };
   const handleDelete = () => {
-    deleteMutation.mutate(todo.id);
+    deleteMutation.mutate(todo.id!);
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 import { Audio as LoadingSpinner } from 'react-loader-spinner';
-import useGetTodos from '../../lib/service/hooks/useGetTodos';
+import useGetTodos from '../../lib/service/todo/hooks/useGetTodos';
 
 export default function TodoBoard() {
   const { data } = useGetTodos();
